@@ -23,8 +23,7 @@ bool Solve(string &s){
                                }
                                else{
                                    return false;
-                               }
-                            
+                               }    
                       }
                       else{
                         return false;
