@@ -17,6 +17,9 @@ int GCD(int a, int b){
      }
      return a==0?b:a;
 }
+int LCM(int product,int GCD){
+      return product/GCD;
+}
 int main(){
     int a,b;
     cout<<"Enter first number"<<endl;
@@ -24,8 +27,12 @@ int main(){
     cout<<"Enter second number"<<endl;
     cin>>b;
     int ans=GCD(a,b);
-    cout<<"GCD is: "<<ans;
+    
 
+    int ans2=LCM(a*b,ans);
+    cout<<"GCD is: "<<ans<<endl;
+    cout<<ans2;
+    
     
 
     
