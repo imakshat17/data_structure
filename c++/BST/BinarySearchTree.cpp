@@ -26,6 +26,14 @@ Node* Insert(Node*root,int data){
        return root;
 
 }
+void takeInput(Node*&root){
+     int data;
+     cin>>data;
+     while(data!=-1){
+            root=Insert(root,data);
+            cin>>data;
+     }
+}
 
 Node* findNumber(Node*root,int data){
       if(root==NULL){
@@ -82,14 +90,7 @@ void LabelOrderTraversal(Node* root){
           
       }
 }
-void takeInput(Node*&root){
-     int data;
-     cin>>data;
-     while(data!=-1){
-            root=Insert(root,data);
-            cin>>data;
-     }
-}
+
 void Inorder(Node* root){
           Node* temp=root;
           if(temp==NULL){
