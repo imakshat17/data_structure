@@ -43,6 +43,19 @@ Node* findNumber(Node*root,int data){
       }
       
 }
+
+Node* BST(int arr[], int s, int e){
+         if(s>e){
+             return NULL;
+         }
+         int mid=(s+e)/2;
+         int element=arr[mid];
+         Node* root=new Node(element);
+         root->left=BST(arr,s,mid-1);
+         root->right=BST(arr,mid+1,e);
+         return root;
+   
+}
 void LabelOrderTraversal(Node* root){
       queue<Node*>q;
       q.push(root);
@@ -150,19 +163,26 @@ Node* deleteNode(Node* root,int target){
 
 
 
+
+
 int main(){
 
-    Node* root=NULL;
-    cout<<"Enter the data for Node"<<endl;
-     takeInput(root);
-     cout<<"Level Order tree :---"<<endl;
-       LabelOrderTraversal(root);
-      //  Node* ans=findNumber(root,3);
-      //  cout<<"Number is present:"<<ans->data<<endl;
+//     Node* root=NULL;
+//     cout<<"Enter the data for Node"<<endl;
+//      takeInput(root);
+//      cout<<"Level Order tree :---"<<endl;
+//        LabelOrderTraversal(root);
+//       //  Node* ans=findNumber(root,3);
+//       //  cout<<"Number is present:"<<ans->data<<endl;
       
-      root=deleteNode(root,150);
-      cout<<"Level Order tree :---"<<endl;
-      LabelOrderTraversal(root);
+//       root=deleteNode(root,150);
+//       cout<<"Level Order tree :---"<<endl;
+//       LabelOrderTraversal(root);
+    int arr[]={1,2,3,4,5,6,7,8,9};
+    int s=0;
+    int e=8;
+    Node* root=BST(arr,s,e);
+    LabelOrderTraversal(root);
 
 
 return 0;
