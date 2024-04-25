@@ -161,6 +161,26 @@ Node* deleteNode(Node* root,int target){
        return root;
 
 } 
+void ConvertIntoDoublyLL(Node* root, Node* &Head){
+         if(root==NULL){
+             return;
+         }
+         ConvertIntoDoublyLL(root->right,Head);
+         root->right=Head;
+         if(Head!=NULL){
+              Head->left=root;
+         }
+         Head=root;
+         ConvertIntoDoublyLL(root->left,Head);
+
+}
+void PrintLL(Node* Head){
+       Node* temp=Head;
+       while(temp!=NULL){
+            cout<<temp->data<<" ";
+            temp=temp->right;
+       }
+}
 
 
 
@@ -168,22 +188,26 @@ Node* deleteNode(Node* root,int target){
 
 int main(){
 
-//     Node* root=NULL;
-//     cout<<"Enter the data for Node"<<endl;
-//      takeInput(root);
-//      cout<<"Level Order tree :---"<<endl;
-//        LabelOrderTraversal(root);
+    Node* root=NULL;
+    cout<<"Enter the data for Node"<<endl;
+     takeInput(root);
+     cout<<"Level Order tree :---"<<endl;
+       LabelOrderTraversal(root);
+       Node* head=NULL;
+        ConvertIntoDoublyLL(root,head);
+        cout<<"Printing Doubly linked list"<<endl;
+        PrintLL(head);
 //       //  Node* ans=findNumber(root,3);
 //       //  cout<<"Number is present:"<<ans->data<<endl;
       
 //       root=deleteNode(root,150);
 //       cout<<"Level Order tree :---"<<endl;
 //       LabelOrderTraversal(root);
-    int arr[]={1,2,3,4,5,6,7,8,9};
-    int s=0;
-    int e=8;
-    Node* root=BST(arr,s,e);
-    LabelOrderTraversal(root);
+//     int arr[]={1,2,3,4,5,6,7,8,9};
+//     int s=0;
+//     int e=8;
+//     Node* root=BST(arr,s,e);
+//     LabelOrderTraversal(root);
 
 
 return 0;
